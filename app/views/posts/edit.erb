@@ -1,0 +1,9 @@
+<h2 class="title">Editing: </h2>
+
+			<% form_for :blog_post, @blog_post, :url => posts_path, :html => { :method => :put }, :html => { :multipart => true } do |f| -%>
+				<%= render :partial => 'form', :locals => { :f => f } %>
+			<p>
+				<%= submit_tag 'Update Post' %>
+			</p>
+<%end%>
+ 

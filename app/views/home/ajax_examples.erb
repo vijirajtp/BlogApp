@@ -1,0 +1,34 @@
+<%#*Ajax examples%>
+
+<p>Ajax examples</p>
+
+<% form_remote_tag :url => { :action => 'greet' } do -%>
+  Enter your name: <%= text_field_tag :name %>
+  <%= submit_tag "Greet Me" %>
+<% end -%>
+<h2 id="greeting" style="display: none"></h2>
+
+<%= link_to_remote "Check Time",
+    :update => 'current_time',
+    :url    => { :action => 'get_time' },
+    :before   => "$('indicator').show(  )",
+    :success  => "$('current_time').visualEffect('grow')",
+    :failure  => "alert('There was an error. ')",
+    :complete => "$('indicator').hide(  )" %>
+<span id="indicator" style="display: none;">Loading...</span>
+<div id="current_time"></div>
+
+
+<% form_remote_tag :update => "reversed", :url    => { :action => 'reverse' } do -%>
+  <p>Text to reverse: <%= text_field_tag 'text_to_reverse' %></p>
+  <p id="reversed"></p>
+  <p><%= submit_tag 'Reverse!' %></p>
+<% end -%>
+
+<div id="target">
+  <div>Click the link to fade this text </div>
+</div>
+
+<%= link_to_function "Fade", "new Effect.Fade('target')" %>
+
+<p><%= link_to "Back to home", root_url %></p>

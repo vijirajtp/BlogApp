@@ -1,0 +1,4 @@
+page[:greeting].hide 
+page[:greeting].update "Greetings, " + params[:name]
+page[:greeting].visual_effect :grow
+page.select("form").first.reset   

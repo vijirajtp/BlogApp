@@ -1,0 +1,22 @@
+<div>
+
+<%= error_messages_for :blog_post %>
+
+	<% form_for :contact, @contact, :url => { :action => 'send_message'} do |f| %>
+
+	<p><%= label_tag "Email" %><br>
+	<%= f.text_field :email %></p>
+
+	<p><%= label_tag "Telephone" %><br>
+	<%= f.text_field :telephone %></p>
+
+	<p><%= label_tag "Subject" %><br>
+	<%= f.text_field :subject, :size => 50 %></p>
+
+	<p><%= label_tag "Message" %><br>
+	<%= f.text_area :message, :rows => 12, :cols => 43 %></p>
+
+	<%= submit_tag "Submit" %>
+
+	<% end %>
+</div>

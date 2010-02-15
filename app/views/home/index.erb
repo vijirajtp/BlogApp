@@ -1,0 +1,75 @@
+<script type="text/javascript">
+  function init()
+  {
+    startTime();    //digitalclock.js
+    clock();        //clock.js
+  }
+</script>
+
+<% unless logged_in? %>
+<div style="float:left;">
+<p>Click here to login : <%= link_to "Login",login_path %><br><br>
+Not yet registered ? <%= link_to "Signup",signup_path %></p><br></div><% end %>
+
+<div style="float:right;">
+  
+  <div id="txt_digital_time"></div>
+
+<div style="background:#E5EECC;">
+
+  <table><tr><td>
+<div style="width:120px;height:100px;position:relative;left:58px;top:50px">
+	<div id="dig1" class="dig">1</div>
+	<div id="dig2" class="dig">2</div>
+	<div id="dig3" class="dig">3</div>
+
+	<div id="dig4" class="dig">4</div>
+	<div id="dig5" class="dig">5</div>
+	<div id="dig6" class="dig">6</div>
+	<div id="dig7" class="dig">7</div>
+	<div id="dig8" class="dig">8</div>
+	<div id="dig9" class="dig">9</div>
+
+	<div id="dig10" class="dig">10</div>
+	<div id="dig11" class="dig">11</div>
+	<div id="dig12" class="dig">12</div>
+
+	<div id="hour1" class="hour"></div>
+	<div id="hour2" class="hour"></div>
+	<div id="hour3" class="hour"></div>
+	<div id="hour4" class="hour"></div>
+
+	<div id="min1" class="min"></div>
+	<div id="min2" class="min"></div>
+	<div id="min3" class="min"></div>
+	<div id="min4" class="min"></div>
+	<div id="min5" class="min"></div>
+
+	<div id="sec1" class="sec"></div>
+	<div id="sec2" class="sec"></div>
+	<div id="sec3" class="sec"></div>
+
+	<div id="sec4" class="sec"></div>
+	<div id="sec5" class="sec"></div>
+	<div id="sec6" class="sec"></div>
+</div>
+</td></tr></table></div></div>
+
+
+
+<div  style="padding-top:100px;">
+<p><%= link_to "Blog",{ :controller=> 'blog',:action=>'index'} %></p>
+<p><%= link_to "Contact",{ :controller=> 'home',:action=>'contact'} %></p>
+<p><%= link_to "Search",{ :controller=> 'blog', :action=>'search'} %></p>
+<p><%= link_to "Click to see ajax examples",{ :controller=> 'home', :action=>'ajax_examples'} %></p></div>
+
+<%#Timer%>
+
+<p> Timer Example </p>
+<p><input type="button" value="Start count!" onClick="doTimer()">
+<input type="text" id="txt_timer" />
+<input type="button" value="Stop count!" onClick="stopCount()"></p>
+
+
+
+

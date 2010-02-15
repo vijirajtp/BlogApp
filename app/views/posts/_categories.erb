@@ -1,0 +1,27 @@
+<p >
+	Categories
+	<ul >
+		<% unless @categories.blank? %>
+		<% @categories.each do |cat| %>
+
+		<%-
+	      post_category = @blog_post.categories.detect{ |c| c.category_id == cat.id }
+	      posts_category = !post_category.blank? ? post_category : PostsCategory.new({:post_id => @blog_post.id})
+	      index ||= "INDEX"
+	      new_or_existing = posts_category.new_record? ? 'new' : 'existing'
+	      id_or_index = posts_category.new_record? ? index : posts_category.id
+	    -%>
+
+			<li>
+				<% fields_for "blog_post[#{new_or_existing}_posts_category_attributes]", posts_category do |category_form| %>
+					<%= category_form.check_box :category_id, {:index => cat.id}, cat.id, "0" %>
+					<%= category_form.hidden_field :post_id, :index => cat.id %>
+					<%= cat.category_name %>
+				<% end %>
+			</li>
+		<% end %>
+		<% else %>
+			<li><span class="note">No categories found</span></li>
+		<% end %>
+	</ul>
+</p>

@@ -1,0 +1,39 @@
+
+ <%= render :partial => "post", :object => @post %>
+
+<h2><strong> Comments </strong></h2>
+<div>
+     <%= error_messages_for :blog_post %>
+     <% if @total == 0 %>
+
+    	<p>No comments..</p>
+
+     <% else %>
+
+	    <p><b><%= @total %></b> Comments</p>
+     <%end%>
+
+       <p> Comments</p>
+       <% @comments.each do |p|  %>
+       <%= p.message %>
+     <%end%>
+</div>
+<% form_for :comment, @comment, :url => { :controller => 'blog', :action => 'create_comment', :id => @post.id  } do |f| -%>
+
+<p><%= f.label :name %><br>
+<%= f.text_field :name %></p>
+
+
+<p><%= f.label :email %><br>
+<%= f.text_field :email %></p>
+
+
+<p><%= f.label :website %><br>
+<%= f.text_field :website %></p>
+
+<p><%= f.label :message %><br>
+<%= f.text_area :message, :rows => 12, :cols => 60 %></p>
+
+ <p><%= submit_tag 'Post Comment' %></p>
+
+ <%end%>

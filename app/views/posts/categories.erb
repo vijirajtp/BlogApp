@@ -1,0 +1,36 @@
+<h2><strong> Categories </strong></h2>
+<div>
+     <%= error_messages_for :blog_post %>
+     <% if @total == 0 %>
+
+    	<p>No categoreis found..</p>
+
+     <% else %>
+
+	    <p>Categories found : <b><%= @total %></b></p>
+     <%end%>
+
+   <table border="0" cellpadding="5" class="table sortable">
+    <thead>
+     <tr>
+        <td class="first" width="20%">Category Name</td>
+        <td> Action </td>
+     </tr>
+    </thead>
+     <tr>
+        <% @categories.each do |p|  %>
+        <td><%= p.category_name %> </td>
+        <td><strong><%=  link_to "Delete",post_path(p.id),:method => :delete, :confirm => "Are you sure?"%></strong></td>
+     </tr>
+     <%end%>
+   </table>
+
+   <% form_for :category, @category, :url => { :controller => 'posts', :action => 'create_category'  } do |f| -%>
+
+   <p><%= f.label :category_name %> <%= f.text_field :category_name %>   <%= submit_tag 'Create' %></p>
+
+   <p style="float :left"><%=  link_to "Back", posts_path %> </p>
+
+   <%end%>
+
+</div>

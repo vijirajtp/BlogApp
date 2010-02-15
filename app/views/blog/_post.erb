@@ -1,0 +1,8 @@
+
+<p>Title : <%= post.title %> </p>
+
+<p><%=image_tag(post.public_filename, :width =>'150') if !post.filename.blank? %></p>
+
+<p>Content :<%= post.content %> </p>
+
+

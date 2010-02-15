@@ -1,0 +1,25 @@
+<div  id="left-column">
+  
+	<p>Posts</p>
+
+
+<% @posts.each do |p| %>
+
+  <%=  link_to p.title,blog_path(p.id) %>
+       
+       <p><%= truncate(p.content,100) %> </p>
+   
+<%end%>
+</div>
+
+
+<div id="right-column">
+    
+       <p> Categories </p>
+       <ul class="category-list">
+       <% @categories.each do |cat| %>
+         <li><%=  link_to cat.category_name, categories_blog_path(cat.id) %></li>
+         <%end%>
+         </ul>
+    </div>
+

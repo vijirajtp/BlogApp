@@ -1,0 +1,27 @@
+<% if @total == 0 %>
+
+	<p>No posts found..</p>
+
+<% else %>
+
+	<p>Posts found : <b><%= @total %></b></p>
+    <table border="0" cellpadding="5" class="table sortable">
+  <thead>
+    <tr>
+        <th class="first" width="20%">Title</th>
+        <th width="30%">Content</th>
+        <th>Action</th>
+        <th></th>
+        </tr>
+  </thead>
+
+
+    <%= render :partial => "posts", :collection => @posts %>
+
+</table>
+
+
+    <%end%>
+    <p style="float :left"><%=  link_to "Back", new_post_path %> </p>
+    <p style="float :right"><%=  link_to "Create/view Category", categories_posts_path %>
+</p>

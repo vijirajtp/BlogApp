@@ -1,0 +1,9 @@
+
+  <tr>
+<td><%= posts.title %> </td>
+      <td> <%=  posts.content %></td>
+      <td><%= link_to image_tag(posts.public_filename(:thumb)), posts.public_filename if !posts.filename.blank? %></td>
+          <td><strong><%=  link_to "Delete",post_path(posts.id),:method => :delete, :confirm => "Are you sure?"%></strong></td>
+          <td><strong><%=  link_to "Edit",edit_post_path(posts.id)%></strong></td>
+          </tr>
+
